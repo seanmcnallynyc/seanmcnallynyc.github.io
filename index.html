@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sean McNally — Research Music Therapist &amp; UX Researcher</title>
+<meta name="description" content="Research music therapist and UX researcher building AI tools for cancer patients, grounded in clinical trial data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F7F2E9;
+    --paper:#FFFCF6;
+    --ink:#2B2420;
+    --sub:#6B5F4F;
+    --brass:#B8742C;
+    --brass-deep:#8F5419;
+    --brass-soft:#E7C79A;
+    --line:#E3D9C7;
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Inter',-apple-system,Helvetica,Arial,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+    --maxw:900px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--cream);color:var(--ink);
+    font-family:var(--sans);font-size:17px;line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  a{color:var(--brass-deep);text-decoration-color:var(--brass-soft);text-underline-offset:3px;}
+  a:hover{color:var(--ink);}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--ink);margin:0;}
+  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--brass-deep);margin:0 0 10px;}
+  .lead{font-size:17.5px;color:var(--sub);max-width:680px;}
+  section{padding:64px 0;}
+  section:first-of-type{padding-top:0;}
+
+  /* NAV */
+  nav.top{
+    position:sticky;top:0;z-index:50;
+    background:rgba(247,242,233,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.top .row{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:var(--maxw);margin:0 auto;}
+  nav.top .nm{font-family:var(--serif);font-weight:600;font-size:16px;color:var(--ink);text-decoration:none;}
+  nav.top ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;}
+  nav.top a{font-family:var(--sans);font-size:13.5px;font-weight:500;color:var(--sub);text-decoration:none;}
+  nav.top a:hover{color:var(--brass-deep);}
+  nav.top .res{color:var(--paper);background:var(--ink);padding:7px 14px;border-radius:5px;font-size:13px;}
+  nav.top .res:hover{background:var(--brass-deep);color:var(--paper);}
+  @media(max-width:680px){ nav.top ul{display:none;} }
+
+  /* WAVEFORM DIVIDER */
+  .wavebreak{display:flex;justify-content:center;padding:6px 0;opacity:.85;}
+  .wavebreak .wave{height:22px;width:200px;}
+
+  /* HERO */
+  header.hero{padding:72px 0 48px;}
+  header.hero .credtag{font-family:var(--mono);font-size:12.5px;color:var(--sub);margin-bottom:18px;}
+  header.hero h1{font-size:34px;line-height:1.15;letter-spacing:-.01em;margin-bottom:18px;}
+  header.hero .role{font-family:var(--sans);font-size:14px;color:var(--sub);margin-top:22px;}
+  header.hero .role b{color:var(--ink);font-weight:600;}
+  .now{
+    display:inline-flex;align-items:center;gap:8px;margin-top:24px;
+    font-family:var(--mono);font-size:12.5px;color:var(--brass-deep);
+    background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:6px 14px 6px 10px;
+  }
+  .now .dot{width:7px;height:7px;border-radius:50%;background:var(--brass);flex:none;animation:pulse 2.4s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+
+  /* SECTION HEADS */
+  .shead{margin-bottom:30px;}
+  .shead h2{font-size:26px;}
+  .shead .lead{margin-top:8px;}
+
+  /* TALKS */
+  .talks{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);}
+  .talks li{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline;}
+  .talks .yr{font-family:var(--mono);font-size:13px;color:var(--brass-deep);flex:none;width:42px;}
+  .talks .body{flex:1;}
+  .talks .venue{font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--sub);margin-bottom:3px;}
+  .talks .ttl{font-family:var(--serif);font-size:16.5px;color:var(--ink);font-weight:500;}
+  .talks .watch{font-family:var(--sans);font-size:13px;white-space:nowrap;}
+
+  /* TOOLS */
+  .toolintro{max-width:680px;margin-bottom:36px;}
+  .toolcard{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:26px;margin-bottom:24px;}
+  .toolcard .tlabel{font-family:var(--mono);font-size:11.5px;color:var(--brass-deep);letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px;}
+  .toolcard h3{font-size:21px;margin-bottom:10px;}
+  .toolcard p{color:var(--sub);font-size:15px;max-width:640px;margin:0 0 18px;}
+  .toolcard .frame{
+    border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--cream);
+    aspect-ratio:16/10;position:relative;
+  }
+  .toolcard .frame iframe{width:100%;height:100%;border:0;display:block;}
+  .toolcard .openlink{display:inline-block;margin-top:12px;font-family:var(--sans);font-size:13.5px;font-weight:500;}
+  .placeholder-shot{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+    height:100%;color:var(--sub);font-family:var(--sans);font-size:13px;text-align:center;padding:20px;
+    background:repeating-linear-gradient(135deg,var(--cream),var(--cream) 10px,#F1E9D9 10px,#F1E9D9 20px);
+  }
+  .placeholder-shot .icon{width:34px;height:34px;opacity:.5;}
+  .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-size:13.5px;font-weight:600;
+    padding:9px 16px;border-radius:6px;text-decoration:none;
+  }
+  .btn.primary{background:var(--ink);color:var(--paper);}
+  .btn.primary:hover{background:var(--brass-deep);}
+  .btn.ghost{border:1px solid var(--line);color:var(--ink);background:transparent;}
+  .btn.ghost:hover{border-color:var(--brass);color:var(--brass-deep);}
+
+  /* STUDIES */
+  .studygrid{display:grid;grid-template-columns:1fr;gap:16px;}
+  .scard{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:22px 24px;}
+  .scard .sname{font-family:var(--serif);font-weight:600;font-size:18px;color:var(--ink);margin-bottom:8px;}
+  .scard .sq{font-size:15.5px;color:var(--ink);margin:0 0 12px;}
+  .scard .sstatus{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;margin-bottom:10px;}
+  .pill{font-family:var(--mono);font-size:11px;padding:3px 9px;border-radius:20px;letter-spacing:.02em;}
+  .pill.live{background:#E4EEE0;color:#3E6B2D;}
+  .pill.wait{background:#F0E6D2;color:var(--brass-deep);}
+  .scard .srole{font-size:13.5px;color:var(--sub);margin:0;}
+  .scard .scite{font-size:13px;margin-top:8px;}
+  .scard .scross{margin-top:10px;font-size:13px;padding-top:10px;border-top:1px dashed var(--line);}
+
+  /* CASE STUDY */
+  .cs-meta{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--sub);margin:14px 0 26px;}
+  .cs-meta span b{color:var(--ink);font-weight:500;}
+  .statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 30px;}
+  .stat{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:18px 14px;text-align:center;}
+  .stat .n{font-family:var(--mono);font-size:25px;color:var(--brass-deep);font-weight:500;}
+  .stat .l{font-size:12px;color:var(--sub);margin-top:4px;}
+  .cs-block{margin-bottom:26px;}
+  .cs-block h4{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--brass-deep);margin-bottom:8px;}
+  .cs-block p{font-size:16px;line-height:1.7;color:var(--ink);max-width:700px;}
+  blockquote.pull{
+    font-family:var(--serif);font-style:italic;font-size:22px;line-height:1.45;color:var(--ink);
+    border-left:3px solid var(--brass);margin:30px 0;padding:4px 0 4px 22px;max-width:620px;
+  }
+  blockquote.pull cite{display:block;font-family:var(--sans);font-style:normal;font-size:12.5px;color:var(--sub);margin-top:10px;}
+
+  /* OTHER WORK */
+  .strip{list-style:none;margin:0;padding:0;}
+  .strip li{display:grid;grid-template-columns:140px 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--line);}
+  .strip .cat{font-family:var(--mono);font-size:11px;color:var(--brass-deep);text-transform:uppercase;letter-spacing:.04em;padding-top:2px;}
+  .strip .desc b{font-family:var(--sans);color:var(--ink);}
+  .strip .desc{font-size:14.5px;color:var(--sub);}
+  @media(max-width:600px){ .strip li{grid-template-columns:1fr;gap:4px;} }
+
+  /* CONTACT / FOOTER */
+  footer.foot{border-top:1px solid var(--line);padding:48px 0 60px;}
+  footer.foot h2{font-size:24px;margin-bottom:14px;}
+  .contactrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;}
+  .copyright{margin-top:40px;font-family:var(--mono);font-size:11.5px;color:var(--sub);}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    .now .dot{animation:none;}
+  }
+
+  @media(max-width:680px){
+    header.hero h1{font-size:27px;}
+    .statrow{grid-template-columns:1fr;}
+    .talks li{flex-wrap:wrap;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="row">
+    <a class="nm" href="#top">Sean McNally</a>
+    <ul>
+      <li><a href="#talks">Talks</a></li>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#studies">Studies</a></li>
+      <li><a href="#case-study">Case Study</a></li>
+      <li><a href="#other-work">Other Work</a></li>
+    </ul>
+    <!-- TODO: point this at your actual hosted resume PDF -->
+    <a class="res" href="resume.pdf">Résumé</a>
+  </div>
+</nav>
+
+<div id="top"></div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="credtag">Sean McNally, LCAT, MT-BC</p>
+    <h1 class="reveal">I research how emerging AI tools deepen musical engagement in collaborative songwriting as a therapeutic tool, and deliver the telehealth music therapy that puts that research into practice with cancer patients.</h1>
+    <p class="role reveal"><b>Research Music Therapist</b> — Integrative Medicine &amp; Wellness Service, Memorial Sloan Kettering Cancer Center · Seattle, WA (remote)</p>
+    <div class="now reveal"><span class="dot"></span>Currently building AI integration tools for VIRTUOSO, an NIH-funded R01 on AI-assisted collaborative songwriting</div>
+  </div>
+</header>
+
+<div class="wavebreak"><svg class="wave" viewBox="0 0 220 28" fill="var(--brass)" aria-hidden="true"><rect x="0.0" y="12.3" width="4.2" height="3.4" rx="1"/><rect x="6.5" y="9.2" width="4.2" height="9.6" rx="1"/><rect x="12.9" y="9.1" width="4.2" height="9.8" rx="1"/><rect x="19.4" y="11.1" width="4.2" height="5.7" rx="1"/><rect x="25.9" y="9.6" width="4.2" height="8.8" rx="1"/><rect x="32.4" y="9.6" width="4.2" height="8.9" rx="1"/><rect x="38.8" y="8.0" width="4.2" height="12.0" rx="1"/><rect x="45.3" y="6.7" width="4.2" height="14.6" rx="1"/><rect x="51.8" y="11.1" width="4.2" height="5.9" rx="1"/><rect x="58.2" y="11.4" width="4.2" height="5.3" rx="1"/><rect x="64.7" y="5.0" width="4.2" height="18.0" rx="1"/><rect x="71.2" y="7.8" width="4.2" height="12.4" rx="1"/><rect x="77.6" y="4.7" width="4.2" height="18.6" rx="1"/><rect x="84.1" y="11.0" width="4.2" height="6.0" rx="1"/><rect x="90.6" y="6.8" width="4.2" height="14.5" rx="1"/><rect x="97.1" y="3.8" width="4.2" height="20.5" rx="1"/><rect x="103.5" y="8.3" width="4.2" height="11.4" rx="1"/><rect x="110.0" y="0.6" width="4.2" height="26.9" rx="1"/><rect x="116.5" y="1.5" width="4.2" height="24.9" rx="1"/><rect x="122.9" y="10.5" width="4.2" height="7.1" rx="1"/><rect x="129.4" y="10.7" width="4.2" height="6.7" rx="1"/><rect x="135.9" y="6.2" width="4.2" height="15.6" rx="1"/><rect x="142.4" y="3.2" width="4.2" height="21.6" rx="1"/><rect x="148.8" y="8.2" width="4.2" height="11.6" rx="1"/><rect x="155.3" y="9.8" width="4.2" height="8.5" rx="1"/><rect x="161.8" y="8.5" width="4.2" height="11.0" rx="1"/><rect x="168.2" y="11.5" width="4.2" height="5.0" rx="1"/><rect x="174.7" y="10.4" width="4.2" height="7.2" rx="1"/><rect x="181.2" y="9.3" width="4.2" height="9.4" rx="1"/><rect x="187.6" y="9.3" width="4.2" height="9.4" rx="1"/><rect x="194.1" y="11.0" width="4.2" height="6.0" rx="1"/><rect x="200.6" y="11.2" width="4.2" height="5.5" rx="1"/><rect x="207.1" y="11.5" width="4.2" height="4.9" rx="1"/><rect x="213.5" y="10.8" width="4.2" height="6.5" rx="1"/></svg></div>
+
+<section id="talks">
+  <div class="wrap">
+    <div class="shead reveal">
+      <p class="eyebrow">Talks</p>
+      <h2>Public presentations, in order</h2>
+    </div>
+    <ul class="talks reveal">
+      <li>
+        <span class="yr">2025</span>
+        <div class="body">
+          <div class="venue">Society for Integrative Oncology · Harvard</div>
+          <div class="ttl">AI-Assisted Collaborative Songwriting: Mixed Methods Secondary Analysis</div>
+        </div>
+      </li>
+      <li>
+        <span class="yr">2024</span>
+        <div class="body">
+          <div class="venue">Society for Integrative Oncology · City of Hope</div>
+          <div class="ttl">Collaborative Songwriting for Anxiety in Cancer Survivors: A Novel Treatment Approach Leveraging Music Technology</div>
+        </div>
+      </li>
+      <li>
+        <span class="yr">2023</span>
+        <div class="body">
+          <div class="venue">Red Door Community (formerly Gilda&rsquo;s Club) · Virtual</div>
+          <div class="ttl">Public lecture on music therapy interventions, including an in-depth look at the MELODY study</div>
+        </div>
+        <a class="watch" href="https://www.youtube.com/watch?v=WHhzi2NxuME" target="_blank" rel="noopener">Watch &#8599;</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<div class="wavebreak"><svg class="wave" viewBox="0 0 220 28" fill="var(--brass)" aria-hidden="true"><rect x="0.0" y="9.3" width="4.2" height="9.5" rx="1"/><rect x="6.5" y="8.8" width="4.2" height="10.4" rx="1"/><rect x="12.9" y="12.3" width="4.2" height="3.5" rx="1"/><rect x="19.4" y="12.0" width="4.2" height="4.1" rx="1"/><rect x="25.9" y="7.8" width="4.2" height="12.3" rx="1"/><rect x="32.4" y="7.9" width="4.2" height="12.2" rx="1"/><rect x="38.8" y="7.9" width="4.2" height="12.2" rx="1"/><rect x="45.3" y="9.8" width="4.2" height="8.3" rx="1"/><rect x="51.8" y="7.5" width="4.2" height="12.9" rx="1"/><rect x="58.2" y="7.1" width="4.2" height="13.7" rx="1"/><rect x="64.7" y="7.0" width="4.2" height="14.1" rx="1"/><rect x="71.2" y="10.0" width="4.2" height="8.0" rx="1"/><rect x="77.6" y="7.5" width="4.2" height="13.0" rx="1"/><rect x="84.1" y="7.5" width="4.2" height="12.9" rx="1"/><rect x="90.6" y="4.2" width="4.2" height="19.6" rx="1"/><rect x="97.1" y="1.1" width="4.2" height="25.8" rx="1"/><rect x="103.5" y="1.0" width="4.2" height="25.9" rx="1"/><rect x="110.0" y="4.8" width="4.2" height="18.4" rx="1"/><rect x="116.5" y="6.1" width="4.2" height="15.7" rx="1"/><rect x="122.9" y="8.2" width="4.2" height="11.7" rx="1"/><rect x="129.4" y="10.6" width="4.2" height="6.9" rx="1"/><rect x="135.9" y="10.8" width="4.2" height="6.4" rx="1"/><rect x="142.4" y="7.2" width="4.2" height="13.6" rx="1"/><rect x="148.8" y="8.7" width="4.2" height="10.5" rx="1"/><rect x="155.3" y="8.5" width="4.2" height="11.0" rx="1"/><rect x="161.8" y="5.1" width="4.2" height="17.9" rx="1"/><rect x="168.2" y="8.1" width="4.2" height="11.8" rx="1"/><rect x="174.7" y="8.2" width="4.2" height="11.6" rx="1"/><rect x="181.2" y="10.5" width="4.2" height="6.9" rx="1"/><rect x="187.6" y="12.0" width="4.2" height="4.1" rx="1"/><rect x="194.1" y="10.5" width="4.2" height="7.0" rx="1"/><rect x="200.6" y="11.7" width="4.2" height="4.6" rx="1"/><rect x="207.1" y="10.2" width="4.2" height="7.6" rx="1"/><rect x="213.5" y="8.6" width="4.2" height="10.9" rx="1"/></svg></div>
+
+<section id="tools">
+  <div class="wrap">
+    <div class="shead reveal">
+      <p class="eyebrow">Tools</p>
+      <h2>Two tools, one problem</h2>
+      <p class="lead">Both came out of the same recurring observation: people freeze in front of a blank page when asked to turn a feeling into something. The wheel solves the first version of that problem. The scaffold solves the harder version generative AI introduced.</p>
+    </div>
+
+    <div class="toolcard reveal">
+      <p class="tlabel">V1 &middot; Naming the feeling</p>
+      <h3>Emotion Wheel</h3>
+      <p>An interactive wheel that gives patients language for an emotional state before asking them to do anything with it musically. Built as an early step toward the problem the lyric scaffold later addressed at a harder level.</p>
+      <div class="frame">
+        <!-- Live embed of the deployed tool -->
+        <iframe src="https://wheel.seanmcnallyusa.com" loading="lazy" title="Interactive emotion wheel tool"></iframe>
+      </div>
+      <a class="openlink" href="https://wheel.seanmcnallyusa.com" target="_blank" rel="noopener">Open full size &#8599;</a>
+    </div>
+
+    <div class="toolcard reveal">
+      <p class="tlabel">V2 &middot; Naming it to a machine</p>
+      <h3>Lyric Scaffold</h3>
+      <p>A structured prompt sequence that sits outside Suno entirely, walking a patient from a named emotion to a workable lyric draft, with a five-minute target before the blank page wins. Built after watching patients freeze in front of Suno&rsquo;s open prompt field, sometimes for a full session.</p>
+      <div class="frame">
+        <!-- Live embed of the deployed tool -->
+        <iframe src="https://suno.seanmcnallyusa.com" loading="lazy" title="Lyric Scaffold tool interface"></iframe>
+      </div>
+      <div class="cta-row">
+        <a class="btn primary" href="https://suno.seanmcnallyusa.com" target="_blank" rel="noopener">Open full size &#8599;</a>
+        <a class="btn ghost" href="https://github.com/seanmcnallynyc/Structured-Lyric-Input-Scaffold" target="_blank" rel="noopener">View source</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wavebreak"><svg class="wave" viewBox="0 0 220 28" fill="var(--brass)" aria-hidden="true"><rect x="0.0" y="11.9" width="4.2" height="4.2" rx="1"/><rect x="6.5" y="10.4" width="4.2" height="7.2" rx="1"/><rect x="12.9" y="10.9" width="4.2" height="6.3" rx="1"/><rect x="19.4" y="9.4" width="4.2" height="9.1" rx="1"/><rect x="25.9" y="8.9" width="4.2" height="10.1" rx="1"/><rect x="32.4" y="11.7" width="4.2" height="4.5" rx="1"/><rect x="38.8" y="11.9" width="4.2" height="4.2" rx="1"/><rect x="45.3" y="6.4" width="4.2" height="15.2" rx="1"/><rect x="51.8" y="9.9" width="4.2" height="8.2" rx="1"/><rect x="58.2" y="9.9" width="4.2" height="8.3" rx="1"/><rect x="64.7" y="3.8" width="4.2" height="20.4" rx="1"/><rect x="71.2" y="7.5" width="4.2" height="13.0" rx="1"/><rect x="77.6" y="4.1" width="4.2" height="19.9" rx="1"/><rect x="84.1" y="6.8" width="4.2" height="14.4" rx="1"/><rect x="90.6" y="5.0" width="4.2" height="18.1" rx="1"/><rect x="97.1" y="9.3" width="4.2" height="9.4" rx="1"/><rect x="103.5" y="4.2" width="4.2" height="19.6" rx="1"/><rect x="110.0" y="1.4" width="4.2" height="25.2" rx="1"/><rect x="116.5" y="5.4" width="4.2" height="17.3" rx="1"/><rect x="122.9" y="3.6" width="4.2" height="20.8" rx="1"/><rect x="129.4" y="4.7" width="4.2" height="18.7" rx="1"/><rect x="135.9" y="10.5" width="4.2" height="7.1" rx="1"/><rect x="142.4" y="4.7" width="4.2" height="18.5" rx="1"/><rect x="148.8" y="6.5" width="4.2" height="15.0" rx="1"/><rect x="155.3" y="9.1" width="4.2" height="9.8" rx="1"/><rect x="161.8" y="11.3" width="4.2" height="5.3" rx="1"/><rect x="168.2" y="5.7" width="4.2" height="16.5" rx="1"/><rect x="174.7" y="8.8" width="4.2" height="10.5" rx="1"/><rect x="181.2" y="7.6" width="4.2" height="12.8" rx="1"/><rect x="187.6" y="7.1" width="4.2" height="13.8" rx="1"/><rect x="194.1" y="8.5" width="4.2" height="11.1" rx="1"/><rect x="200.6" y="7.9" width="4.2" height="12.2" rx="1"/><rect x="207.1" y="10.7" width="4.2" height="6.5" rx="1"/><rect x="213.5" y="9.4" width="4.2" height="9.2" rx="1"/></svg></div>
+
+<section id="case-study">
+  <div class="wrap">
+    <div class="shead reveal">
+      <p class="eyebrow">Case Study &middot; Research &rarr; Product</p>
+      <h2>Closing the Blank-Page Gap in AI-Assisted Songwriting</h2>
+      <div class="cs-meta">
+        <span><b>Role:</b> sole designer and builder</span>
+        <span><b>Methods:</b> clinical observation, rapid prototyping</span>
+        <span><b>Status:</b> in active deployment, formal evaluation planned</span>
+      </div>
+    </div>
+
+    <div class="statrow reveal">
+      <div class="stat"><div class="n">17/20</div><div class="l">completed a song</div></div>
+      <div class="stat"><div class="n">14/20</div><div class="l">used the AI tool directly</div></div>
+      <div class="stat"><div class="n">6.5 avg</div><div class="l">iterations to land a song (up to 18)</div></div>
+    </div>
+
+    <div class="cs-block reveal">
+      <h4>Context</h4>
+      <p>In our AI-assisted collaborative songwriting protocol for advanced cancer patients, generative music software gave patients with no musical background real authorship over their songs, and reduced therapist production workload outside of sessions. The results were strong, see the numbers above, but getting there wasn&rsquo;t always smooth.</p>
+    </div>
+
+    <div class="cs-block reveal">
+      <h4>What I saw, delivering these sessions myself</h4>
+      <p>The iteration count only tells part of it. Running these sessions, I watched the same moment happen over and over: a patient would arrive with a clear feeling, sit down in front of the AI tool&rsquo;s blank prompt field, and freeze. The tool wasn&rsquo;t the problem, patients who got past the first prompt did well. The gap was between what a patient was feeling and what the interface needed to hear, and for some patients that gap ate the entire hour.</p>
+    </div>
+
+    <div class="cs-block reveal">
+      <h4>Getting buy-in</h4>
+      <p>This wasn&rsquo;t a solo build shipped into a vacuum. I brought the problem to regular team meetings with the study PI, the co-therapists running their own sessions who&rsquo;d hit the same wall, and an outside music therapy research advisor. I showed them the problem as it was happening, iterated on the scaffold&rsquo;s structure based on what they pushed back on, and put each revision back in front of real sessions before calling it done.</p>
+    </div>
+
+    <div class="cs-block reveal">
+      <h4>What I built</h4>
+      <p>Suno is a standalone product. We have a working relationship with the company, but no ability to edit their interface. So rather than wait on someone else&rsquo;s product roadmap to fix it, I designed a lyric scaffold to sit outside the AI tool entirely: a structured sequence that walks a patient from naming an emotion to a workable lyric draft, with a hard target of a usable first draft inside five minutes, before the blank page has time to win. This was the second tool I&rsquo;d built against the same underlying problem. An earlier tool, an interactive <a href="#tools">emotion wheel</a>, solved the first version of it: helping someone name a feeling at all. The scaffold solves the harder version AI made visible, turning a named feeling into language a generative model can act on. <a href="https://suno.seanmcnallyusa.com" target="_blank" rel="noopener">Try the live tool &#8599;</a> &middot; <a href="https://github.com/seanmcnallynyc/Structured-Lyric-Input-Scaffold/blob/main/src/templates.js" target="_blank" rel="noopener">View the prompt logic &#8599;</a></p>
+    </div>
+
+    <blockquote class="pull reveal">
+      &ldquo;Removes the therapist from prompt-engineering and puts their attention back on the patient.&rdquo;
+      <cite>Therapist feedback, early use</cite>
+    </blockquote>
+
+    <div class="cs-block reveal">
+      <h4>Outcome</h4>
+      <p>Not yet formally evaluated. The scaffold is in active use ahead of VIRTUOSO, where testing time-to-draft and completion rate against the prior protocol is the next planned analysis. The early signal so far is qualitative: therapists report that handing the patient a structure removes the therapist from prompt-engineering and puts their attention back on the patient, which is the actual job.</p>
+    </div>
+
+    <div class="cs-block reveal">
+      <h4>What I&rsquo;d do differently</h4>
+      <p>Every round of iteration ran through clinicians first, the study PI, co-therapists, and our research advisor, before it reached a patient. That&rsquo;s a reasonable way to move fast inside a clinical protocol, but it means the scaffold was validated by the people delivering it before it was tested directly with the people using it. If I rebuilt this, I&rsquo;d put a patient in the design loop earlier instead of inferring their experience secondhand through a therapist&rsquo;s report of it.</p>
+    </div>
+  </div>
+</section>
+
+<div class="wavebreak"><svg class="wave" viewBox="0 0 220 28" fill="var(--brass)" aria-hidden="true"><rect x="0.0" y="11.9" width="4.2" height="4.2" rx="1"/><rect x="6.5" y="12.2" width="4.2" height="3.6" rx="1"/><rect x="12.9" y="10.7" width="4.2" height="6.5" rx="1"/><rect x="19.4" y="11.6" width="4.2" height="4.8" rx="1"/><rect x="25.9" y="11.9" width="4.2" height="4.2" rx="1"/><rect x="32.4" y="9.8" width="4.2" height="8.4" rx="1"/><rect x="38.8" y="6.4" width="4.2" height="15.2" rx="1"/><rect x="45.3" y="6.6" width="4.2" height="14.7" rx="1"/><rect x="51.8" y="6.4" width="4.2" height="15.1" rx="1"/><rect x="58.2" y="10.0" width="4.2" height="8.1" rx="1"/><rect x="64.7" y="7.3" width="4.2" height="13.4" rx="1"/><rect x="71.2" y="9.1" width="4.2" height="9.9" rx="1"/><rect x="77.6" y="9.7" width="4.2" height="8.6" rx="1"/><rect x="84.1" y="10.1" width="4.2" height="7.8" rx="1"/><rect x="90.6" y="8.9" width="4.2" height="10.2" rx="1"/><rect x="97.1" y="1.8" width="4.2" height="24.5" rx="1"/><rect x="103.5" y="2.3" width="4.2" height="23.5" rx="1"/><rect x="110.0" y="2.0" width="4.2" height="23.9" rx="1"/><rect x="116.5" y="2.6" width="4.2" height="22.9" rx="1"/><rect x="122.9" y="8.9" width="4.2" height="10.2" rx="1"/><rect x="129.4" y="8.0" width="4.2" height="12.0" rx="1"/><rect x="135.9" y="5.5" width="4.2" height="17.1" rx="1"/><rect x="142.4" y="5.0" width="4.2" height="18.1" rx="1"/><rect x="148.8" y="4.4" width="4.2" height="19.2" rx="1"/><rect x="155.3" y="4.7" width="4.2" height="18.7" rx="1"/><rect x="161.8" y="10.9" width="4.2" height="6.1" rx="1"/><rect x="168.2" y="7.5" width="4.2" height="12.9" rx="1"/><rect x="174.7" y="7.5" width="4.2" height="13.0" rx="1"/><rect x="181.2" y="8.9" width="4.2" height="10.2" rx="1"/><rect x="187.6" y="11.1" width="4.2" height="5.8" rx="1"/><rect x="194.1" y="9.7" width="4.2" height="8.5" rx="1"/><rect x="200.6" y="11.9" width="4.2" height="4.1" rx="1"/><rect x="207.1" y="8.3" width="4.2" height="11.4" rx="1"/><rect x="213.5" y="9.1" width="4.2" height="9.8" rx="1"/></svg></div>
+
+<section id="studies">
+  <div class="wrap">
+    <div class="shead reveal">
+      <p class="eyebrow">Studies</p>
+      <h2>Research programs I work on</h2>
+      <p class="lead">The questions they ask, and what&rsquo;s actually published so far. No unpublished outcomes here.</p>
+    </div>
+
+    <div class="studygrid reveal">
+      <div class="scard">
+        <div class="sname">MELODY</div>
+        <p class="sq">Is telehealth-delivered music therapy as effective as CBT for anxiety in cancer survivors?</p>
+        <div class="sstatus"><span class="pill live">Published</span> Noninferior to CBT at both 8 and 26 weeks &mdash; durable improvement in both arms</div>
+        <p class="srole">Role: screening, eligibility, and IRB-approved consent across a 300-participant multi-site trial, with HIPAA-compliant handling of PHI, audio, and survey data, plus therapy delivery and protocol refinement. Collected validated patient-reported outcomes (HADS, Cancer Loneliness Scale, Impact of Events Scale, FACT-Cog, an insomnia scale, and others, full list in the published paper), including calling participants directly to collect responses by phone when they hadn&rsquo;t completed a survey on their own, to keep the dataset complete. Present ongoing study updates to stakeholders, including patient advocates and funders such as the Patient-Centered Outcomes Research Institute (PCORI). Not an author on the published outcomes.</p>
+        <p class="scite">Liou et al., <em>J Clin Oncol</em> 44:375&ndash;385, 2026. <a href="https://ascopubs.org/doi/10.1200/JCO-25-00726" target="_blank" rel="noopener">DOI 10.1200/JCO-25-00726 &#8599;</a> &middot; a qualitative companion paper has been accepted for publication and is forthcoming.</p>
+        <div class="scross">For the clinical story in plain language: <a href="https://www.youtube.com/watch?v=WHhzi2NxuME" target="_blank" rel="noopener">Red Door Community talk &#8599;</a></div>
+      </div>
+
+      <div class="scard">
+        <div class="sname">VIRTUOSO</div>
+        <p class="sq">Does AI-assisted collaborative songwriting reduce anxiety in advanced cancer patients at scale?</p>
+        <div class="sstatus"><span class="pill wait">Ongoing</span> Funded NIH R01 &middot; no outcomes yet</div>
+        <p class="srole">Role: AI Integration Lead.</p>
+      </div>
+
+      <div class="scard">
+        <div class="sname">PRELUDE</div>
+        <p class="sq">Does learning piano improve cancer-related cognitive dysfunction?</p>
+        <div class="sstatus"><span class="pill wait">Ongoing</span> No outcomes yet</div>
+        <p class="srole">Role: protocol design and dual-arm interventionist, under the study&rsquo;s principal investigator. Developed and maintain vendor relationships with software and hardware partners, covering onboarding, physical product shipping workflows, and ongoing data integrity related to user behavior patterns.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wavebreak"><svg class="wave" viewBox="0 0 220 28" fill="var(--brass)" aria-hidden="true"><rect x="0.0" y="10.5" width="4.2" height="7.0" rx="1"/><rect x="6.5" y="9.6" width="4.2" height="8.8" rx="1"/><rect x="12.9" y="8.9" width="4.2" height="10.1" rx="1"/><rect x="19.4" y="7.8" width="4.2" height="12.5" rx="1"/><rect x="25.9" y="8.3" width="4.2" height="11.3" rx="1"/><rect x="32.4" y="6.9" width="4.2" height="14.3" rx="1"/><rect x="38.8" y="11.8" width="4.2" height="4.4" rx="1"/><rect x="45.3" y="8.8" width="4.2" height="10.4" rx="1"/><rect x="51.8" y="5.2" width="4.2" height="17.6" rx="1"/><rect x="58.2" y="6.8" width="4.2" height="14.3" rx="1"/><rect x="64.7" y="4.5" width="4.2" height="19.0" rx="1"/><rect x="71.2" y="10.4" width="4.2" height="7.2" rx="1"/><rect x="77.6" y="7.2" width="4.2" height="13.6" rx="1"/><rect x="84.1" y="8.8" width="4.2" height="10.3" rx="1"/><rect x="90.6" y="5.8" width="4.2" height="16.3" rx="1"/><rect x="97.1" y="5.2" width="4.2" height="17.6" rx="1"/><rect x="103.5" y="10.5" width="4.2" height="7.0" rx="1"/><rect x="110.0" y="8.2" width="4.2" height="11.6" rx="1"/><rect x="116.5" y="7.8" width="4.2" height="12.4" rx="1"/><rect x="122.9" y="1.9" width="4.2" height="24.2" rx="1"/><rect x="129.4" y="3.8" width="4.2" height="20.4" rx="1"/><rect x="135.9" y="9.6" width="4.2" height="8.8" rx="1"/><rect x="142.4" y="4.4" width="4.2" height="19.2" rx="1"/><rect x="148.8" y="10.2" width="4.2" height="7.6" rx="1"/><rect x="155.3" y="6.7" width="4.2" height="14.6" rx="1"/><rect x="161.8" y="10.6" width="4.2" height="6.7" rx="1"/><rect x="168.2" y="11.7" width="4.2" height="4.6" rx="1"/><rect x="174.7" y="6.2" width="4.2" height="15.6" rx="1"/><rect x="181.2" y="10.7" width="4.2" height="6.6" rx="1"/><rect x="187.6" y="10.9" width="4.2" height="6.2" rx="1"/><rect x="194.1" y="7.1" width="4.2" height="13.9" rx="1"/><rect x="200.6" y="8.1" width="4.2" height="11.8" rx="1"/><rect x="207.1" y="11.2" width="4.2" height="5.6" rx="1"/><rect x="213.5" y="8.7" width="4.2" height="10.6" rx="1"/></svg></div>
+
+<section id="other-work">
+  <div class="wrap">
+    <div class="shead reveal">
+      <p class="eyebrow">Other Work</p>
+      <h2>Range, briefly</h2>
+    </div>
+    <ul class="strip reveal">
+      <li>
+        <div class="cat">Methods</div>
+        <div class="desc"><b>Qualitative coding infrastructure.</b> Built a closed codebook (~20 codes), a verbatim-constrained coding protocol, and a Python fidelity-verification script, so a second coder could replicate the analysis without my involvement. The output is too sensitive to publish; the infrastructure for producing it reliably at scale isn&rsquo;t.</div>
+      </li>
+      <li>
+        <div class="cat">Methods</div>
+        <div class="desc"><b>Facial expression analysis (iMotions).</b> Used affective-computing software to flag emotional peak moments, joy specifically, during AI-generated music playback in session, biometric data alongside self-report and qualitative coding.</div>
+      </li>
+      <li>
+        <div class="cat">Operations</div>
+        <div class="desc"><b>MSK outpatient music therapy program.</b> Built MSK&rsquo;s first outpatient program from the ground up, scaled from 35 to 220+ sessions a year.</div>
+      </li>
+      <li>
+        <div class="cat">Leadership</div>
+        <div class="desc"><b>Board Member, Music Therapy Association of Washington.</b> Leading membership outreach and continuing-education programming for the state association.</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<div class="wavebreak"><svg class="wave" viewBox="0 0 220 28" fill="var(--brass)" aria-hidden="true"><rect x="0.0" y="9.9" width="4.2" height="8.3" rx="1"/><rect x="6.5" y="9.3" width="4.2" height="9.4" rx="1"/><rect x="12.9" y="10.3" width="4.2" height="7.3" rx="1"/><rect x="19.4" y="11.1" width="4.2" height="5.8" rx="1"/><rect x="25.9" y="12.2" width="4.2" height="3.5" rx="1"/><rect x="32.4" y="8.3" width="4.2" height="11.3" rx="1"/><rect x="38.8" y="9.1" width="4.2" height="9.8" rx="1"/><rect x="45.3" y="6.9" width="4.2" height="14.2" rx="1"/><rect x="51.8" y="9.1" width="4.2" height="9.7" rx="1"/><rect x="58.2" y="6.0" width="4.2" height="16.1" rx="1"/><rect x="64.7" y="9.3" width="4.2" height="9.3" rx="1"/><rect x="71.2" y="4.8" width="4.2" height="18.4" rx="1"/><rect x="77.6" y="5.0" width="4.2" height="18.1" rx="1"/><rect x="84.1" y="7.4" width="4.2" height="13.3" rx="1"/><rect x="90.6" y="5.9" width="4.2" height="16.2" rx="1"/><rect x="97.1" y="4.2" width="4.2" height="19.7" rx="1"/><rect x="103.5" y="8.7" width="4.2" height="10.6" rx="1"/><rect x="110.0" y="4.7" width="4.2" height="18.6" rx="1"/><rect x="116.5" y="2.5" width="4.2" height="23.0" rx="1"/><rect x="122.9" y="8.2" width="4.2" height="11.6" rx="1"/><rect x="129.4" y="3.4" width="4.2" height="21.1" rx="1"/><rect x="135.9" y="4.9" width="4.2" height="18.1" rx="1"/><rect x="142.4" y="4.0" width="4.2" height="20.0" rx="1"/><rect x="148.8" y="8.6" width="4.2" height="10.8" rx="1"/><rect x="155.3" y="10.7" width="4.2" height="6.6" rx="1"/><rect x="161.8" y="5.7" width="4.2" height="16.5" rx="1"/><rect x="168.2" y="6.2" width="4.2" height="15.7" rx="1"/><rect x="174.7" y="9.0" width="4.2" height="10.1" rx="1"/><rect x="181.2" y="11.4" width="4.2" height="5.2" rx="1"/><rect x="187.6" y="11.0" width="4.2" height="6.0" rx="1"/><rect x="194.1" y="8.9" width="4.2" height="10.2" rx="1"/><rect x="200.6" y="11.0" width="4.2" height="6.1" rx="1"/><rect x="207.1" y="8.2" width="4.2" height="11.5" rx="1"/><rect x="213.5" y="10.2" width="4.2" height="7.5" rx="1"/></svg></div>
+
+<footer class="foot" id="contact">
+  <div class="wrap">
+    <h2>Get in touch</h2>
+    <p class="lead">Open to UX research roles working at the intersection of clinical care and AI-assisted creative tools.</p>
+    <div class="contactrow">
+      <!-- TODO: replace with your actual contact details -->
+      <a class="btn primary" href="mailto:you@example.com">Email</a>
+      <a class="btn ghost" href="#">LinkedIn &#8599;</a>
+      <a class="btn ghost" href="https://github.com/seanmcnallynyc" target="_blank" rel="noopener">GitHub &#8599;</a>
+    </div>
+    <p class="copyright">&copy; 2026 Sean McNally</p>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>
