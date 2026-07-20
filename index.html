@@ -172,6 +172,23 @@
     .statrow{grid-template-columns:1fr;}
     .talks li{flex-wrap:wrap;}
   }
+
+  /* USER STORY MODALS */
+  .us-trigger{display:inline-flex;align-items:center;gap:6px;background:transparent;border:1px solid var(--brass-soft);border-radius:999px;padding:6px 14px;font-family:var(--mono);font-size:11.5px;font-weight:500;color:var(--brass-deep);cursor:pointer;opacity:.85;margin:.5rem 0 1.25rem;transition:opacity .15s ease,transform .15s ease;}
+  .us-trigger:hover{opacity:1;border-color:var(--brass);}
+  .us-trigger:active{transform:scale(.97);}
+  .us-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;padding:24px;z-index:1000;}
+  .us-overlay.is-open{display:flex;}
+  .us-modal{background:var(--paper);color:var(--ink);max-width:560px;width:100%;max-height:85vh;overflow-y:auto;border-radius:14px;padding:28px 28px 24px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.25);}
+  .us-modal-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.6;margin:0 0 4px;}
+  .us-modal h3{font-family:var(--serif);font-size:20px;margin:0 0 18px;color:var(--ink);}
+  .us-modal h4{font-family:var(--sans);font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--brass-deep);margin:20px 0 6px;}
+  .us-modal p,.us-modal li{font-family:var(--sans);font-size:15px;line-height:1.55;margin:0 0 8px;color:var(--sub);}
+  .us-modal ul{margin:0;padding-left:20px;}
+  .us-story-line{font-size:15px;line-height:1.6;margin:0 0 4px;color:var(--ink);}
+  .us-story-line b{font-weight:600;color:var(--ink);}
+  .us-close{position:absolute;top:16px;right:16px;background:transparent;border:none;font-size:20px;line-height:1;cursor:pointer;opacity:.5;padding:4px;color:var(--ink);}
+  .us-close:hover{opacity:1;}
 </style>
 </head>
 <body>
@@ -297,6 +314,7 @@
       <p class="tlabel">V1 &middot; Naming the feeling</p>
       <h3>Emotion Wheel</h3>
       <p>Translating a feeling into musical language.</p>
+      <button class="us-trigger" data-us-target="us-modal-emotion-wheel" aria-haspopup="dialog">Read the user story</button>
       <div class="frame">
         <!-- Live embed of the deployed tool -->
         <iframe src="https://wheel.seanmcnallyusa.com" loading="lazy" title="Interactive emotion wheel tool"></iframe>
@@ -308,6 +326,7 @@
       <p class="tlabel">V2 &middot; Naming it to a machine</p>
       <h3>Lyric Scaffold</h3>
       <p>A structured prompt sequence, walking a patient from an emotion to a workable lyric draft on a five-minute timeline. Built after watching patients freeze in front of Suno&rsquo;s open prompt field, sometimes for a full session.</p>
+      <button class="us-trigger" data-us-target="us-modal-lyric-scaffold" aria-haspopup="dialog">Read the user story</button>
       <div class="frame">
         <!-- Live embed of the deployed tool -->
         <iframe src="https://suno.seanmcnallyusa.com" loading="lazy" title="Lyric Scaffold tool interface"></iframe>
@@ -478,6 +497,69 @@
   } else {
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
   }
+</script>
+
+
+<!-- EMOTION WHEEL MODAL -->
+<div class="us-overlay" id="us-modal-emotion-wheel" role="dialog" aria-modal="true" aria-labelledby="us-title-emotion-wheel">
+  <div class="us-modal">
+    <button class="us-close" data-us-close aria-label="Close">&times;</button>
+    <p class="us-modal-eyebrow">User story</p>
+    <h3 id="us-title-emotion-wheel">Emotion Wheel</h3>
+    <p class="us-story-line"><b>As a</b> cancer patient with little or no music background,</p>
+    <p class="us-story-line"><b>I want</b> to translate a feeling into descriptive musical language,</p>
+    <p class="us-story-line"><b>so that</b> I have vocabulary to direct an AI-assisted songwriting tool without needing prior musical training.</p>
+    <h4>Context</h4>
+    <p>In session, patients could name what they felt but had no way to translate that into terms a generative music tool could act on. The gap wasn&rsquo;t emotional insight &mdash; it was vocabulary.</p>
+    <h4>Acceptance criteria</h4>
+    <ul>
+      <li>User can select a primary emotion without needing existing music terminology.</li>
+      <li>Wheel surfaces blended/secondary emotions adjacent to the primary selection, since felt emotion is rarely a single, clean category.</li>
+      <li>Each emotion returns concrete musical adjectives (tempo, tone, texture) usable as direct input downstream.</li>
+      <li>A patient with zero musical background can complete emotion-to-language selection in under a minute, unassisted.</li>
+    </ul>
+    <h4>Out of scope</h4>
+    <p>The wheel does not generate music or lyrics itself. It hands off descriptive language to the next step (Lyric Scaffold).</p>
+  </div>
+</div>
+
+<!-- LYRIC SCAFFOLD MODAL -->
+<div class="us-overlay" id="us-modal-lyric-scaffold" role="dialog" aria-modal="true" aria-labelledby="us-title-lyric-scaffold">
+  <div class="us-modal">
+    <button class="us-close" data-us-close aria-label="Close">&times;</button>
+    <p class="us-modal-eyebrow">User story</p>
+    <h3 id="us-title-lyric-scaffold">Lyric Scaffold</h3>
+    <p class="us-story-line"><b>As a</b> cancer patient who has a feeling but freezes in front of an open-ended AI prompt field,</p>
+    <p class="us-story-line"><b>I want</b> a structured sequence of prompts that walks me from that feeling to a complete lyric,</p>
+    <p class="us-story-line"><b>so that</b> I can finish a song within a single session instead of losing the session to a blank page.</p>
+    <h4>Context</h4>
+    <p>Patients repeatedly froze in front of Suno&rsquo;s open prompt field. In practice, the therapist closed that gap by stepping in and prompt-engineering on the patient&rsquo;s behalf &mdash; pulling the therapist out of the therapeutic role at the exact moment the patient needed them most present. The scaffold exists so the therapist can stay a therapist.</p>
+    <h4>Acceptance criteria</h4>
+    <ul>
+      <li>User can move from a named emotion to a complete, submittable lyric draft without a therapist needing to write or translate the prompt on their behalf.</li>
+      <li>Each step requires only a short, low-effort input &mdash; no open-ended prompt writing.</li>
+      <li>Works for patients with no prior AI tool experience and no musical background.</li>
+      <li>Draft output is directly usable as input to Suno without further editing required.</li>
+      <li>A therapist can hand the tool to a patient and step back into an observing, supportive role.</li>
+    </ul>
+    <h4>Status</h4>
+    <p>In active deployment. Formal evaluation against the prior, therapist-mediated workflow is planned as part of VIRTUOSO.</p>
+    <h4>Known limitation</h4>
+    <p>Every revision was validated by clinicians before reaching a patient. The next iteration puts patients earlier in the validation loop.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  function openModal(id){var el=document.getElementById(id);if(!el)return;el.classList.add('is-open');document.body.style.overflow='hidden';}
+  function closeModal(overlay){overlay.classList.remove('is-open');document.body.style.overflow='';}
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('[data-us-target]');if(t){openModal(t.getAttribute('data-us-target'));return;}
+    var c=e.target.closest('[data-us-close]');if(c){closeModal(c.closest('.us-overlay'));return;}
+    if(e.target.classList.contains('us-overlay')){closeModal(e.target);}
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.us-overlay.is-open').forEach(closeModal);}});
+})();
 </script>
 
 </body>
