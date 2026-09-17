@@ -1,0 +1,311 @@
+
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+							<style>
+								body {
+									background-color: white; /* Ensure the iframe has a white background */
+								}
+
+								
+							</style>
+                        </head>
+                        <body>
+                            <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Art Therapies</title>
+
+  <style>
+    :root {
+      --primary: #5b4b8a;
+      --primary-dark: #403362;
+      --secondary: #f4f1fa;
+      --text: #2d2d35;
+      --muted-text: #625c6e;
+      --border: rgba(255, 255, 255, 0.7);
+      --white: rgba(255, 255, 255, 0.88);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+      color: var(--text);
+      background-color: #f9f5fb;
+      background-image:
+        radial-gradient(circle at 8% 12%, rgba(255, 157, 179, 0.45) 0, rgba(255, 157, 179, 0) 28%),
+        radial-gradient(circle at 88% 10%, rgba(116, 193, 214, 0.48) 0, rgba(116, 193, 214, 0) 30%),
+        radial-gradient(circle at 80% 72%, rgba(250, 199, 113, 0.46) 0, rgba(250, 199, 113, 0) 31%),
+        radial-gradient(circle at 15% 85%, rgba(160, 208, 164, 0.45) 0, rgba(160, 208, 164, 0) 32%),
+        radial-gradient(circle at 52% 50%, rgba(190, 157, 218, 0.3) 0, rgba(190, 157, 218, 0) 35%);
+      background-attachment: fixed;
+    }
+
+    header {
+      padding: 4rem 1.5rem;
+      text-align: center;
+      color: white;
+      background: linear-gradient(
+        135deg,
+        rgba(64, 51, 98, 0.88),
+        rgba(91, 75, 138, 0.78)
+      );
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      letter-spacing: 0.5px;
+    }
+
+    main {
+      width: min(1100px, 92%);
+      margin: 2.5rem auto 3rem;
+    }
+
+    .introduction {
+      max-width: 900px;
+      margin: 0 auto 2rem;
+      padding: 1.5rem 1.75rem;
+      text-align: center;
+      font-size: 1.08rem;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 5px 18px rgba(60, 45, 85, 0.12);
+      backdrop-filter: blur(6px);
+    }
+
+    .introduction p {
+      margin: 0;
+    }
+
+    .therapy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.5rem;
+    }
+
+    article {
+      padding: 1.6rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: 0 5px 16px rgba(48, 37, 76, 0.12);
+      backdrop-filter: blur(5px);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    article:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(48, 37, 76, 0.18);
+    }
+
+    article:last-child {
+      grid-column: 1 / -1;
+    }
+
+    h2 {
+      margin: 0 0 0.8rem;
+      color: var(--primary);
+      font-size: 1.35rem;
+    }
+
+    p {
+      margin: 0 0 0.8rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .definition-source {
+      margin-top: 1.25rem;
+      padding-top: 0.75rem;
+      color: var(--muted-text);
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(91, 75, 138, 0.2);
+    }
+
+    .definition-source a,
+    footer a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .definition-source a:hover,
+    .definition-source a:focus,
+    footer a:hover,
+    footer a:focus {
+      text-decoration: underline;
+    }
+
+    footer {
+      padding: 1.5rem;
+      text-align: center;
+      color: var(--muted-text);
+      background: rgba(244, 241, 250, 0.9);
+      border-top: 1px solid rgba(255, 255, 255, 0.65);
+    }
+
+    @media (max-width: 650px) {
+      header {
+        padding: 3rem 1.25rem;
+      }
+
+      .introduction,
+      article {
+        padding: 1.3rem;
+      }
+
+      article:last-child {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Creative Art Therapies</h1>
+  </header>
+
+  <main>
+    <section class="introduction">
+      <p>
+        Creative Arts Therapies is an umbrella term for healthcare professions
+        that use the creative and expressive process of art making to support
+        an individual’s overall wellbeing, psychosocial, physical and spiritual
+        needs. Creative art therapies include the following modalities
+        delivered by a credential professional.
+      </p>
+    </section>
+
+    <section class="therapy-grid" aria-label="Creative art therapy definitions">
+      <article>
+        <h2>Music Therapy</h2>
+        <p>
+          The use of music to promote wellbeing and support an individual’s
+          overall wellbeing at any stage of life with clinical applications of
+          music and a therapeutic relationship.
+        </p>
+        <p class="definition-source">
+          Source:
+          <a href="https://www.musictherapy.org" target="_blank" rel="noopener noreferrer">
+            www.musictherapy.org
+          </a>
+        </p>
+      </article>
+
+      <article>
+        <h2>Art Therapy</h2>
+        <p>
+          A mental health profession that enriches lives of individuals,
+          families, and communities through active art-making, creative
+          process, applied psychological theory, and human experience within
+          a therapeutic relationship.
+        </p>
+        <p class="definition-source">
+          Source:
+          <a href="https://www.nyarttherapy.org" target="_blank" rel="noopener noreferrer">
+            www.nyarttherapy.org
+          </a>
+        </p>
+      </article>
+
+      <article>
+        <h2>Dance / Movement Therapy</h2>
+        <p>
+          The psychotherapeutic use of movement to promote emotional, social,
+          cognitive, and physical integration of the individual.
+        </p>
+        <p class="definition-source">
+          Source:
+          <a href="https://www.adta.org" target="_blank" rel="noopener noreferrer">
+            www.adta.org
+          </a>
+        </p>
+      </article>
+
+      <article>
+        <h2>Drama Therapy</h2>
+        <p>
+          An embodied practice that is active and experiential and can provide
+          the context for participants to tell their stories, set goals and
+          solve problems, express feelings, or achieve catharsis.
+        </p>
+        <p class="definition-source">
+          Source:
+          <a href="https://www.nadta.org" target="_blank" rel="noopener noreferrer">
+            www.nadta.org
+          </a>
+        </p>
+      </article>
+
+      <article>
+        <h2>Poetry / Bibliotherapy</h2>
+        <p>
+          Uses language, symbol, and story in therapeutic, educational growth,
+          and community-building capacities and relies upon the use of poems,
+          stories, song lyrics, imagery, and metaphor to facilitate personal
+          growth, healing, and greater self-awareness.
+        </p>
+        <p class="definition-source">
+          Source:
+          <a href="https://www.poetrytherapy.org" target="_blank" rel="noopener noreferrer">
+            www.poetrytherapy.org
+          </a>
+        </p>
+      </article>
+
+      <article>
+        <h2>Intermodal Expressive Arts</h2>
+        <p>
+          Embraces the connection and interplay of the various arts modalities,
+          including all forms of visual art, photography, craft,
+          movement/dance/somatics, voice/rhythm/sound/music, drama, writing,
+          guided meditation, imagination, and nature-based practices.
+        </p>
+        <p>
+          Uses two or more arts modalities, typically sequenced or layered.
+          An experienced expressive arts facilitator or therapist guides the
+          effective interweaving of modalities to provide maximum benefit to
+          the client.
+        </p>
+        <p class="definition-source">
+          Source:
+          <a href="https://www.ieata.org" target="_blank" rel="noopener noreferrer">
+            www.ieata.org
+          </a>
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Creative Art Therapies</p>
+    <p>
+      You can contact the SIO Creative Art Therapies SIG at:
+      <a href="mailto:siocatsig@gmail.com">siocatsig@gmail.com</a>
+    </p>
+  </footer>
+</body>
+</html>
+
+							<script>
+                            	
+							</script>
+                        </body>
+                        </html>
+                    
